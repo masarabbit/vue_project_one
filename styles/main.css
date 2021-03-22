@@ -7,10 +7,18 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
-  background-color: white;
-  background: url('../assets/grid.png') repeat 0 0;
+  font-family: 'Hammersmith One', sans-serif;
+  background-color: rgb(71, 71, 94);
+  background: url('../assets/cross.png') repeat 0 0;
+  animation: bg_scrolling 8s infinite linear; 
+  background-size: 25px;
 }
+
+@keyframes bg_scrolling {
+  0% { background-position: 0 25px; }
+  100% { background-position: 25px 0; }
+}
+
 
 
 p, h1, h2, h3, h4 {
@@ -22,6 +30,182 @@ p, h1, h2, h3, h4 {
   padding-inline-start: 0px;
 }
 
+h1 {
+  color: white;
+  width: 100%;
+  font-size: 30px;
+  margin: 0 0 10px 0;
+}
+
+h1 > span {
+  font-size: 15px;
+  color: rgb(142, 183, 189);
+}
+
 .red_border {
   border: red 1px solid;
+}
+
+.flex_column {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wrapper {
+  /* border: red 1px solid; */
+  padding: 20px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1100px;
+}
+
+header {
+  /* border: red 1px solid; */
+  padding: 35px 40px 20px 40px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 180px;
+  width: calc(50% - 30px);
+  margin: 15px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: solid;
+  background-color: white;
+  border-color:rgb(139, 188, 201);
+  border-width: 0 0 4px 0;
+
+  /* backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.808); */
+  box-shadow: 0 0 10px 0 rgba(2, 2, 2, 0.6);
+
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  /* position: relative; */
+}
+
+p {
+  color: white;
+}
+
+p.title {
+  width: 100%;
+  padding: 12px 20px 10px 20px;
+  /* color: white; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+p.status {
+  color: rgba(0,25,168,1);
+  width: 100%;
+  font-size: 18px;
+  margin: -5px 0 10px 0;
+}
+
+p.reason {
+  color: rgba(220,36,31,1);
+  font-size: 14px;
+}
+
+.emoji {
+  background-color: white;
+  border-radius: 50%;
+  margin: -7px 0 -5px 0;
+}
+
+.bakerloo {
+  background-image: linear-gradient(to right, rgba(178,99,0,1) , rgb(100, 58, 6));
+}
+
+.central {
+  background-image: linear-gradient(to right, rgba(220,36,31,1), rgb(141, 22, 38));
+}
+
+.circle {
+  color: rgba(0,25,168,1);
+  background-image: linear-gradient(to right, rgba(255,211,41,1), rgb(212, 129, 21));
+}
+
+.district {
+  background-image: linear-gradient(to right, rgba(0,125,50,1), rgb(8, 97, 85));
+}
+
+.hammersmith-city {
+  color: rgba(0,25,168,1);
+  background-image: linear-gradient(to right, rgba(244,169,190,1), rgb(216, 95, 129));
+}
+
+.jubilee {
+  background-image: linear-gradient(to right, rgba(161,165,167,1), rgb(90, 116, 131));
+}
+
+.metropolitan {
+  background-image: linear-gradient(to right, rgba(155,0,88,1), rgb(114, 9, 68));
+}
+
+.northern {
+  background-image: linear-gradient(to right, rgba(0,0,0,1), rgb(61, 57, 57));
+}
+
+.piccadilly {
+  background-image: linear-gradient(to right, rgba(0,25,168,1), rgb(28, 13, 94));
+}
+
+.victoria {
+  background-image: linear-gradient(to right, rgba( 0,152,216,1), rgb(5, 69, 143));
+}
+
+.waterloo-city {
+  color: rgba(0,25,168,1);
+  background-image: linear-gradient(to right, rgba(147,206,186,1),rgb(55, 129, 105));
+}
+
+p.good_service {
+  color: rgba(0,114,41,1);
+}
+
+p.minor_delays, p.severe_delays, p.part_suspended, p.planned_closure, p.part_closure {
+  color: rgba(220,36,31,1);
+}
+
+p.hide {
+  display: none;
+}
+
+
+/*  */
+button {
+  padding: 12px;
+  margin: 15px 10px 0 0;
+  border: solid;
+  border-radius: 6px;
+  border-color:rgb(39, 176, 194);
+  border-width: 0 0 4px 0;
+  color: white;
+  background-image: linear-gradient(to bottom, rgb(43, 194, 194) 40%,rgb(2, 149, 175));
+  transition: 0.1s;
+  box-shadow: 0 0 10px 0 rgba(2, 2, 2, 0.6);
+}
+
+button:hover {
+  animation: pulsate ease infinite 1s;
+}
+@keyframes pulsate {
+  0% {transform: scale(1);}
+  70% {transform: scale(1.1);}
+  100% {transform: scale(1);}
+
 }

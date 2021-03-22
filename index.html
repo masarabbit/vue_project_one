@@ -6,13 +6,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="./styles/main.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+  </style>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src ="./scripts/app.js" charset="utf-8"></script>
+  <script src ="./scripts/components.js" charset="utf-8"></script>
+
+
 
 
   <title>Vue Project One</title>
 </head>
 <body>
   
+  <div id="app">
+    {{ message }}
+
+    <header>
+      <h1>
+        TFL Status <span>{{ displayUpdateTime }}</span> 
+      </h1>
+      <p>{{ overallStatus }}</p> 
+      
+      <div>
+        <button v-on:click="sortTrainLines">
+          Reverse Order
+        </button>
+
+        <button 
+        v-if="!badservicehidden" 
+        v-on:click="hideBadService">
+          Hide Bad Service
+        </button>
+
+        <button 
+        v-else
+        v-on:click="showAllService">
+          Show All
+        </button>
+      </div>
+  
+    </header>
+
+    <div class="wrapper flex_column">
+      <div 
+      class="card"
+      v-for="trainline in trainlines"
+      >
+        <p class="title" v-bind:class="trainline.lineclass">
+          {{ trainline.linename }}
+
+          <img class="emoji"
+          v-if="trainline.status === 'Good Service'" 
+          src= '/assets/happy.svg'
+          />
+          <img v-else class="emoji"
+          v-else-if="trainline.status === 'Planned Closure'" 
+          src= '/assets/bit_sad.svg'
+          />
+          <img v-else class="emoji"
+          src= '/assets/sad.svg'
+          />
+        </p>
+
+        <div class="info">
+          <p 
+          class="status"
+          v-bind:class="trainline.statusclass"
+        >
+          {{ trainline.status }}
+        </p>
+        <p
+          class="reason"
+          v-bind:class="trainline.status"
+        >
+          {{ trainline.reason }}
+        </p>
+        </div>
+      </div>
+
+
+    </div>
+  
+
+
+  </div>
+
+
 </body>
 </html>
